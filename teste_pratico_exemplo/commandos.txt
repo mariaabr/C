@@ -1,0 +1,9 @@
+antlr4 Grammar.g4 >> compilar a gramática
+antlr4 Grammar.g4 -visitor >> gramática + visitor
+cat > exemplo.txt >> permite saber ler o que está dentro do exemplo.txt -> not working
+javac *.java >> compila todo o código .java
+antlr4-test Grammar program -gui < exemplo.txt >> mostra a àrvore do exemplo.txt pela gramática
+antlr4-visitor Grammar Execute String >> cria um visitor para a gramática chamado Execute e que executa uma String
+view-javadoc HashMap >> abre um ficheiro no browser com a documentação java sobre um conceito, neste caso HashMap
+antlr4-main Grammar program -v Execute -i >> criar a main da gramática Grammar e do visitor Execute
+java Main exemplo.txt >> executar a gramática aplicada ao exemplo.txt

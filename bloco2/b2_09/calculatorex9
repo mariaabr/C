@@ -1,0 +1,52 @@
+reduce:
+	Frac value = visit(ctx.expr());
+	return value.reduce();
+	
+parent:
+	return visit(ctx.expr());
+
+muldiv:
+	Frac a = visit(ctx.expr(0));
+	Frac b = visit(ctx.expr(1));
+	
+	if(ctx.op().getText().equals('*')){
+		return a.mul(b);
+	} else {
+		return a.div(b);
+	}
+
+addsub:
+	Frac a = visit(ctx.expr(0));
+	Frac b = visit(ctx.expr(1));
+	
+	if(ctx.op().getText().equals('+')){
+		return a.sum(b);
+	} else {
+		return a.sub(b);
+	}
+	
+id:
+	String varName = ctx.ID()getText();
+	Frac value = variables.get
+	// ...
+
+power:
+	Frac expr = visit(ctx.expr(1));
+	Frac base;
+	
+	expr.reduce();
+	
+	if(expr.denominador != 1){
+		System.err.printf("Invalid exponent %d / %d \n", expr, ...);
+		
+	}
+	
+	return base.power(expr);
+	
+	
+literal:
+	Integer n = ctx.NUM(0);
+	Integer d = ctx.NUM(1);
+	
+	if (d == null) return new Frac(n,1);
+	// ...
